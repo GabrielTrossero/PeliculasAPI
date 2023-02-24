@@ -49,4 +49,8 @@ export class HomeComponent {
       }
     );
   }
+
+  ngOnDestroy() {
+    this.peliculasService.resetCarteleraPage();
+  }
 }

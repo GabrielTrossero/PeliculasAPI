@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
+import { MovieResponse } from '../interfaces/movie-response';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,8 @@ export class PeliculasService {
     //https://api.themoviedb.org/3/trending/all/week?api_key=73f307b3caf328a366dfabbcf55bf2b9
     //Cartelera: https://api.themoviedb.org/3/movie/now_playing?api_key=73f307b3caf328a366dfabbcf55bf2b9
     //Idea para header: https://api.themoviedb.org/3/trending/all/week?api_key=73f307b3caf328a366dfabbcf55bf2b9
+    //Detalle pelicula: https://api.themoviedb.org/3/movie/505642?api_key=73f307b3caf328a366dfabbcf55bf2b9
+    //Imagen de la pelicula: https://image.tmdb.org/t/p/original/sv1xJUazXeYqALzczSZ3O6nkH75.jpg
   }
 
   get params() {
@@ -48,5 +51,17 @@ export class PeliculasService {
           this.cargando = false;
         }) //con tap edito el resultado obtenido de map (cambiar de pagina)
       );
+  }
+
+  resetCarteleraPage() {
+    this.carteleraPage = 1;
+  }
+
+  getDetallePelicula($id: string): Observable<MovieResponse> {
+    const urlSecon = '/movie/';
+    console.log(this.baseURL + urlSecon + $id);
+    return this.httpClient.get<MovieResponse>(this.baseURL + urlSecon + $id, {
+      params: this.params,
+    });
   }
 }
