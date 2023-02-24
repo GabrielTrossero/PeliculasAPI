@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'poster',
 })
 export class PosterPipe implements PipeTransform {
-  transform(poster: string): string {
+  transform(poster: string | null): string {
     if (poster) {
       return `https://image.tmdb.org/t/p/original${poster}`;
     } else {

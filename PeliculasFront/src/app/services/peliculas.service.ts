@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 import { MovieResponse } from '../interfaces/movie-response';
+import { Cast, CreditsResponse } from '../interfaces/credits-response';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,7 @@ export class PeliculasService {
     //Idea para header: https://api.themoviedb.org/3/trending/all/week?api_key=73f307b3caf328a366dfabbcf55bf2b9
     //Detalle pelicula: https://api.themoviedb.org/3/movie/505642?api_key=73f307b3caf328a366dfabbcf55bf2b9
     //Imagen de la pelicula: https://image.tmdb.org/t/p/original/sv1xJUazXeYqALzczSZ3O6nkH75.jpg
+    //Elenco: https://api.themoviedb.org/3/movie/505642/credits?api_key=73f307b3caf328a366dfabbcf55bf2b9
   }
 
   get params() {
@@ -63,5 +65,15 @@ export class PeliculasService {
     return this.httpClient.get<MovieResponse>(this.baseURL + urlSecon + $id, {
       params: this.params,
     });
+  }
+
+  getCast($id: string): Observable<Cast[]> {
+    const urlSecon = '/movie/';
+    const urlThird = '/credits';
+    return this.httpClient
+      .get<CreditsResponse>(this.baseURL + urlSecon + $id + urlThird, {
+        params: this.params,
+      })
+      .pipe(map((data) => data.cast)); //filtro el resultado para devolver solo el elenco
   }
 }
