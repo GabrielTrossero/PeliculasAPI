@@ -16,12 +16,12 @@ export class PeliculasService {
 
   constructor(private httpClient: HttpClient) {
     this.baseURL = 'https://api.themoviedb.org/3';
-    //https://api.themoviedb.org/3/trending/all/week?api_key=73f307b3caf328a366dfabbcf55bf2b9
     //Cartelera: https://api.themoviedb.org/3/movie/now_playing?api_key=73f307b3caf328a366dfabbcf55bf2b9
-    //Idea para header: https://api.themoviedb.org/3/trending/all/week?api_key=73f307b3caf328a366dfabbcf55bf2b9
+    //Tendencias: https://api.themoviedb.org/3/trending/movie/week?api_key=73f307b3caf328a366dfabbcf55bf2b9
     //Detalle pelicula: https://api.themoviedb.org/3/movie/505642?api_key=73f307b3caf328a366dfabbcf55bf2b9
     //Imagen de la pelicula: https://image.tmdb.org/t/p/original/sv1xJUazXeYqALzczSZ3O6nkH75.jpg
     //Elenco: https://api.themoviedb.org/3/movie/505642/credits?api_key=73f307b3caf328a366dfabbcf55bf2b9
+    //Buscar pelicula: https://api.themoviedb.org/3/search/movie?api_key=73f307b3caf328a366dfabbcf55bf2b9
   }
 
   get params() {
@@ -30,6 +30,16 @@ export class PeliculasService {
       languaje: 'es-ES',
       page: this.carteleraPage.toString(),
     };
+  }
+
+  getTrending(): Observable<Movie[]> {
+    const urlSecon = '/trending/movie/week';
+
+    return this.httpClient
+      .get<CarteleraResponse>(this.baseURL + urlSecon, {
+        params: this.params,
+      })
+      .pipe(map((data) => data.results)); //map filtra para usar una parte de la informacion (results contiene la info de las peliculas)
   }
 
   getMovies(): Observable<Movie[]> {

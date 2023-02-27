@@ -9,6 +9,7 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
 })
 export class HomeComponent {
   public arrayMovies: Movie[];
+  public arrayTrending: Movie[];
 
   //Función que captura el scrolling
   @HostListener('window:scroll', ['$event'])
@@ -36,13 +37,22 @@ export class HomeComponent {
 
   constructor(private peliculasService: PeliculasService) {
     this.arrayMovies = [];
+    this.arrayTrending = [];
   }
 
   ngOnInit() {
     this.peliculasService.getMovies().subscribe(
       (data) => {
-        console.log(data);
         this.arrayMovies = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.peliculasService.getTrending().subscribe(
+      (data) => {
+        this.arrayTrending = data;
       },
       (error) => {
         console.log(error);
