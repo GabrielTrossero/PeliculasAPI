@@ -26,12 +26,12 @@ export class HomeComponent {
       if (this.peliculasService.cargando) {
         return;
       }
-      this.peliculasService.getMovies().subscribe(
-        (movies) => {
+      this.peliculasService.getMovies().subscribe({
+        next: (movies) => {
           this.arrayMovies.push(...movies);
         },
-        (error) => console.log(error)
-      );
+        error: (error) => console.log(error),
+      });
     }
   }
 
@@ -41,23 +41,23 @@ export class HomeComponent {
   }
 
   ngOnInit() {
-    this.peliculasService.getMovies().subscribe(
-      (data) => {
+    this.peliculasService.getMovies().subscribe({
+      next: (data) => {
         this.arrayMovies = data;
       },
-      (error) => {
+      error: (error) => {
         console.log(error);
-      }
-    );
+      },
+    });
 
-    this.peliculasService.getTrending().subscribe(
-      (data) => {
+    this.peliculasService.getTrending().subscribe({
+      next: (data) => {
         this.arrayTrending = data;
       },
-      (error) => {
+      error: (error) => {
         console.log(error);
-      }
-    );
+      },
+    });
   }
 
   ngOnDestroy() {

@@ -21,12 +21,12 @@ export class BuscarComponent {
 
   ngOnInit() {
     const consultaSearch = this.activatedRoute.snapshot.params;
-    this.peliculasService.searchMovie(consultaSearch['texto']).subscribe(
-      (data) => {
+    this.peliculasService.searchMovie(consultaSearch['texto']).subscribe({
+      next: (data) => {
         this.moviesSearch = data;
       },
-      (error) => console.log(error)
-    );
+      error: (error) => console.log(error),
+    });
   }
 
   onMovieClick(movie: Movie) {
