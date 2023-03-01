@@ -1,4 +1,6 @@
-<div *ngFor="let movie of trending">
+<div *ngFor="let movie of moviesSearch">
+  <h3>{{ movie.title }}</h3>
+  <p>{{ movie.overview }}</p>
   <!--poster es un pipe que nos setea correctamente la ruta de la img-->
   <img
     [src]="movie.poster_path | poster"
@@ -6,5 +8,4 @@
     alt=""
     (click)="onMovieClick(movie)"
   />
-  <h3>{{ movie.title }}</h3>
 </div>

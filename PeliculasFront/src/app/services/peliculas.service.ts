@@ -86,4 +86,18 @@ export class PeliculasService {
       })
       .pipe(map((data) => data.cast)); //filtro el resultado para devolver solo el elenco
   }
+
+  searchMovie(texto: string): Observable<Movie[]> {
+    const urlSecon = '/search/movie';
+    const params = {
+      ...this.params,
+      query: texto,
+    };
+
+    return this.httpClient
+      .get<CarteleraResponse>(this.baseURL + urlSecon, {
+        params: params,
+      })
+      .pipe(map((data) => data.results));
+  }
 }

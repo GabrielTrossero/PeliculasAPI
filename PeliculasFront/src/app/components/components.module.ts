@@ -6,10 +6,21 @@ import { PeliculasPosterComponent } from './peliculas-poster/peliculas-poster.co
 import { PipesModule } from '../pipes/pipes.module';
 import { CastComponent } from './cast/cast.component';
 import { TrendingComponent } from './trending/trending.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [PeliculasPosterComponent, CastComponent, TrendingComponent],
+  declarations: [
+    PeliculasPosterComponent,
+    CastComponent,
+    TrendingComponent,
+    NavbarComponent,
+  ],
   imports: [CommonModule, ComponentsRoutingModule, PipesModule],
-  exports: [PeliculasPosterComponent, CastComponent, TrendingComponent],
+  exports: [
+    PeliculasPosterComponent,
+    CastComponent,
+    TrendingComponent,
+    NavbarComponent,
+  ],
 })
 export class ComponentsModule {}
