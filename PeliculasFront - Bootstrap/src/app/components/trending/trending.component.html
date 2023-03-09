@@ -1,5 +1,5 @@
+<!--poster es un pipe que nos setea correctamente la ruta de la img-->
 <div *ngFor="let movie of trending">
-  <!--poster es un pipe que nos setea correctamente la ruta de la img-->
   <img
     [src]="movie.poster_path | poster"
     class="img"

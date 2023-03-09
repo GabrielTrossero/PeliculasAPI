@@ -1,6 +1,22 @@
-<h1 routerLink="/home">PeliPremium.com</h1>
-
 <!--El numeral # crea una variable que referencia al elemento input, por consiguiente, podemos hacer algo como:
 {{ var.value }}-->
-<input #txtBuscar (keyup.enter)="buscarPelicula(txtBuscar.value)" />
-<button (click)="buscarPelicula(txtBuscar.value)" type="submit">Buscar</button>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand mb-0 h1" routerLink="/home">PeliPremium.com</a>
+    <div class="d-flex">
+      <input
+        #txtBuscar
+        (keyup.enter)="buscarPelicula(txtBuscar.value)"
+        class="form-control me-2"
+        placeholder="Buscar Pelicula"
+      />
+      <button
+        (click)="buscarPelicula(txtBuscar.value)"
+        class="btn btn-primary"
+        type="submit"
+      >
+        Buscar
+      </button>
+    </div>
+  </div>
+</nav>
