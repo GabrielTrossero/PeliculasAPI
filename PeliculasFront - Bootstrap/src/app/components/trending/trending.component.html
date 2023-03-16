@@ -1,4 +1,4 @@
-<!--poster es un pipe que nos setea correctamente la ruta de la img-->
+<!--poster es un pipe que nos setea correctamente la ruta de la img
 <div *ngFor="let movie of trending">
   <img
     [src]="movie.poster_path | poster"
@@ -7,4 +7,55 @@
     (click)="onMovieClick(movie)"
   />
   <h3>{{ movie.title }}</h3>
+</div>-->
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <!--[].constructor(10) es para hacer un for de 10 elementos-->
+    <div *ngFor="let key of [].constructor(10); let i = index">
+      <button
+        [ngClass]="{ active: i == 0 }"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        attr.data-bs-slide-to="{{ i }}"
+        aria-current="true"
+        attr.aria-label="Slide {{ i }}"
+      ></button>
+    </div>
+  </div>
+  <div class="carousel-inner">
+    <div *ngFor="let movie of trending | slice : 0 : 10; let i = index">
+      <!--condicional para que el primer elemento tenga la class activo y se muestre-->
+      <div class="carousel-item" [ngClass]="{ active: i == 0 }">
+        <img
+          [src]="movie.backdrop_path | poster"
+          class="d-block w-100"
+          alt=""
+          (click)="onMovieClick(movie)"
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{ movie.title }}</h5>
+          <p>{{ movie.overview }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>

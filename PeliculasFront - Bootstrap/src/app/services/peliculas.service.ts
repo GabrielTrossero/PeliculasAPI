@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, take } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 import { MovieResponse } from '../interfaces/movie-response';
@@ -22,7 +22,6 @@ export class PeliculasService {
     //Imagen de la pelicula: https://image.tmdb.org/t/p/original/sv1xJUazXeYqALzczSZ3O6nkH75.jpg
     //Elenco: https://api.themoviedb.org/3/movie/505642/credits?api_key=73f307b3caf328a366dfabbcf55bf2b9
     //Buscar pelicula: https://api.themoviedb.org/3/search/movie?api_key=73f307b3caf328a366dfabbcf55bf2b9
-    //Imagenes de la pelicula (idea carousel): https://api.themoviedb.org/3/movie/631842/images?api_key=73f307b3caf328a366dfabbcf55bf2b9
   }
 
   get params() {
