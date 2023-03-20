@@ -1,4 +1,29 @@
-.img {
+/*.img {
     width: 200px;
     padding-bottom: 40px;
+}*/
+
+/*
+$card-border-radius: 5%;
+
+.card-img-top,
+.card { 
+    border-radius: $card-border-radius;
+    border-color: black;
+}
+
+.card-img-top:hover {
+    cursor: pointer;
+}*/
+
+.img-poster {
+    width: 278px;
+    height: 418px;
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+.col {
+    text-align: center;
+    margin-bottom: 40px;
 }
