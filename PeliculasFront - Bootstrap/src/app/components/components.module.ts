@@ -7,6 +7,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { CastComponent } from './cast/cast.component';
 import { TrendingComponent } from './trending/trending.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RatingModule } from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     TrendingComponent,
     NavbarComponent,
   ],
-  imports: [CommonModule, ComponentsRoutingModule, PipesModule],
+  imports: [CommonModule, ComponentsRoutingModule, PipesModule, RatingModule],
   exports: [
     PeliculasPosterComponent,
     CastComponent,

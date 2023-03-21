@@ -15,13 +15,27 @@
 
 <!--poster es un pipe que nos setea correctamente la ruta de la img-->
 <div class="row">
-  <div class="col" *ngFor="let movie of movies">
+  <div class="col-md-3 mb-5 pelicula-poster" *ngFor="let movie of movies">
     <img
       [src]="movie.poster_path | poster"
-      class="img-poster"
+      class="img-poster img-fluid"
       alt=""
       (click)="onMovieClick(movie)"
     />
-    <p>Puntación: {{ movie.vote_average }}</p>
+    <div class="row star-rating">
+      <div class="col-11">
+        <star-rating
+          [value]="movie.vote_average"
+          [totalstars]="10"
+          checkedcolor="yellow"
+          uncheckedcolor="grey"
+          size="14px"
+          [readonly]="false"
+        ></star-rating>
+      </div>
+      <div class="col-1">
+        {{ movie.vote_average }}
+      </div>
+    </div>
   </div>
 </div>

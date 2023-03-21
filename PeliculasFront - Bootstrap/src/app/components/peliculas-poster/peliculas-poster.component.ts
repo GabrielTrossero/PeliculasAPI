@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/interfaces/cartelera-response';
+import { StarRatingComponent } from 'ng-starrating';
 
 @Component({
   selector: 'app-peliculas-poster',
@@ -16,5 +17,16 @@ export class PeliculasPosterComponent {
 
   onMovieClick(movie: Movie) {
     this.router.navigate(['/pelicula', movie.id]);
+  }
+
+  onRate($event: {
+    oldValue: number;
+    newValue: number;
+    starRating: StarRatingComponent;
+  }) {
+    alert(`Old Value:${$event.oldValue}, 
+      New Value: ${$event.newValue}, 
+      Checked Color: ${$event.starRating.checkedcolor}, 
+      Unchecked Color: ${$event.starRating.uncheckedcolor}`);
   }
 }

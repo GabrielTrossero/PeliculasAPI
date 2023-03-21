@@ -1,29 +1,18 @@
-/*.img {
-    width: 200px;
-    padding-bottom: 40px;
-}*/
-
-/*
-$card-border-radius: 5%;
-
-.card-img-top,
-.card { 
-    border-radius: $card-border-radius;
-    border-color: black;
-}
-
-.card-img-top:hover {
-    cursor: pointer;
-}*/
-
 .img-poster {
-    width: 278px;
-    height: 418px;
     cursor: pointer;
     border-radius: 5%;
+    aspect-ratio: 3/4; //solución a problema de tamaño diferente en imagenes
 }
 
-.col {
-    text-align: center;
-    margin-bottom: 40px;
+.pelicula-poster {
+    transition: transform .2s; 
+}
+
+.pelicula-poster:hover {
+    transform: scale(1.05);
+}
+
+.star-rating{
+    margin-left: 5px;
+    margin-right: 15px;
 }
