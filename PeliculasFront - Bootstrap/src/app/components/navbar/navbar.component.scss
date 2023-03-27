@@ -1,0 +1,16 @@
+.navbar{
+    position:absolute;
+    width:100%;
+    max-width:100%;
+    background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.014));
+
+    //fijar navbar
+    position: fixed;
+    top: 0;
+    z-index:999;
+}
+
+//oscurecer navbar al bajar
+.navbar-scrolled {
+    background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.774));
+}

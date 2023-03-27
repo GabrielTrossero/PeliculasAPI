@@ -1,8 +1,15 @@
 <!--El numeral # crea una variable que referencia al elemento input, por consiguiente, podemos hacer algo como:
 {{ var.value }}-->
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg" data-bs-theme="dark">
+<nav class="navbar navbar-dark navbar-expand-lg" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand mb-0 h1" routerLink="/home">PeliPremium.com</a>
+    <a class="navbar-brand" routerLink="/home">
+      <img
+        src="../../../assets/images/logo.png"
+        alt=""
+        width="120"
+        height="35"
+      />
+    </a>
     <div class="d-flex">
       <input
         #txtBuscar
@@ -12,7 +19,7 @@
       />
       <button
         (click)="buscarPelicula(txtBuscar.value)"
-        class="btn btn-primary"
+        class="btn btn-dark"
         type="submit"
       >
         Buscar

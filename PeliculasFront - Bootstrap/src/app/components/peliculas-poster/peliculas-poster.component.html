@@ -1,18 +1,3 @@
-<!--
-<div *ngFor="let movie of movies">
-  <h3>{{ movie.title }}</h3>
-  <p>{{ movie.overview }}</p>
-  <!--poster es un pipe que nos setea correctamente la ruta de la img-->
-<!--
-  <img
-    [src]="movie.poster_path | poster"
-    class="img"
-    alt=""
-    (click)="onMovieClick(movie)"
-  />
-</div>
--->
-
 <!--poster es un pipe que nos setea correctamente la ruta de la img-->
 <div class="row">
   <div class="col-md-3 mb-5 pelicula-poster" *ngFor="let movie of movies">

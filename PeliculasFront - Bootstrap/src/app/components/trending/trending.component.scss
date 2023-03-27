@@ -6,15 +6,45 @@ $carousel-control-icon-width: 3.5rem;
 	height: $carousel-control-icon-width;
 }
 
-.carousel-caption {
+//vw ajusta el tamaño del elemento de acuerdo al tamaño de la pantalla
+.descripcion {
     background-color:  rgba(0, 0, 0, 0.6);
     color: rgb(184, 184, 184);
-    border-radius: 15px;
-    padding-inline: 15px;
+    border-radius: 5px;
+    padding: 1vw;
 }
-/*
-.img-trending {
-    width: 1499px;
-    height: 750px;
-}*/
 
+.descripcion p {
+    font-size: 1.1vw;
+}
+
+.descripcion h3 {   
+    font: small-caps 200%/100% serif;
+    font-size: 3.5vw;
+}
+
+.tendencia-puesto {
+    font: small-caps 100%/200% serif;
+    display: inline;
+    font-size: 3vw;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    background-color:  rgba(255, 255, 255, 0.527);
+    color: rgb(0, 0, 0);
+}
+
+.img-trending {
+    aspect-ratio: 16/8;
+}
+
+
+@media only screen and (max-width: 850px) {
+    .descripcion p {
+        display: none;
+    }
+
+    .descripcion {
+        padding-bottom: 1px;
+    }
+}

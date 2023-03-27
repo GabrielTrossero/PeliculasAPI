@@ -1,14 +1,3 @@
-<!--poster es un pipe que nos setea correctamente la ruta de la img
-<div *ngFor="let movie of trending">
-  <img
-    [src]="movie.poster_path | poster"
-    class="img"
-    alt=""
-    (click)="onMovieClick(movie)"
-  />
-  <h3>{{ movie.title }}</h3>
-</div>-->
-
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
     <!--[].constructor(10) es para hacer un for de 10 elementos-->
@@ -33,9 +22,12 @@
           alt=""
           (click)="onMovieClick(movie)"
         />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>{{ movie.title }}</h5>
-          <p>{{ movie.overview }}</p>
+        <div class="carousel-caption">
+          <label class="tendencia-puesto">Puesto #{{ i + 1 }}</label>
+          <div class="descripcion">
+            <h3>{{ movie.title }}</h3>
+            <p>{{ movie.overview }}</p>
+          </div>
         </div>
       </div>
     </div>
