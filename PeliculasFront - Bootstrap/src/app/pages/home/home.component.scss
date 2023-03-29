@@ -1,14 +1,11 @@
 .title {
-    position: absolute;
-    z-index:10;
-    margin-top: 60px;
-    color: rgb(184, 184, 184);
-    font: small-caps 100%/200% serif;
+  color: rgb(184, 184, 184);
+  font: small-caps 100%/200% serif;
 }
 
-.carousel-caption {
-    background-color:  rgba(0, 0, 0, 0.6);
-    color: rgb(184, 184, 184);
-    border-radius: 15px;
-    padding-inline: 15px;
+.title2 {
+  @extend .title;
+  position: absolute;
+  padding-top: 60px;
+  z-index: 10;
 }

@@ -1,50 +1,52 @@
 $carousel-control-icon-width: 3.5rem;
+$padding-border-margin: 5px;
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-	width: $carousel-control-icon-width;
-	height: $carousel-control-icon-width;
+  width: $carousel-control-icon-width;
+  height: $carousel-control-icon-width;
 }
 
 //vw ajusta el tamaño del elemento de acuerdo al tamaño de la pantalla
 .descripcion {
-    background-color:  rgba(0, 0, 0, 0.6);
-    color: rgb(184, 184, 184);
-    border-radius: 5px;
-    padding: 1vw;
-}
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgb(184, 184, 184);
+  border-radius: $padding-border-margin;
+  padding: 1vw;
 
-.descripcion p {
-    font-size: 1.1vw;
-}
-
-.descripcion h3 {   
+  h3 {
     font: small-caps 200%/100% serif;
     font-size: 3.5vw;
+  }
+
+  p {
+    font-size: 1.1vw;
+  }
 }
 
 .tendencia-puesto {
-    font: small-caps 100%/200% serif;
-    display: inline;
-    font-size: 3vw;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 5px;
-    background-color:  rgba(255, 255, 255, 0.527);
-    color: rgb(0, 0, 0);
+  font: small-caps 100%/200% serif;
+  display: inline;
+  font-size: 3vw;
+  padding: {
+    left: $padding-border-margin;
+    right: $padding-border-margin;
+  }
+  border-radius: $padding-border-margin;
+  background-color: rgba(255, 255, 255, 0.527);
+  color: rgb(0, 0, 0);
 }
 
 .img-trending {
-    aspect-ratio: 16/8;
+  aspect-ratio: 16/8;
 }
 
-
 @media only screen and (max-width: 850px) {
-    .descripcion p {
-        display: none;
-    }
+  .descripcion {
+    padding-bottom: 1px;
 
-    .descripcion {
-        padding-bottom: 1px;
+    p {
+      display: none;
     }
+  }
 }

@@ -1,18 +1,18 @@
 .img-poster {
-    cursor: pointer;
-    border-radius: 5%;
-    aspect-ratio: 3/4; //solución a problema de tamaño diferente en imagenes
+  cursor: pointer;
+  border-radius: 5%;
+  aspect-ratio: 3/4; //solución a problema de tamaño diferente en imagenes
 }
 
 .pelicula-poster {
-    transition: transform .2s; 
+  transition: transform 0.2s;
 }
 
 .pelicula-poster:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-.star-rating{
-    margin-left: 5px;
-    margin-right: 20px;
+.star-rating {
+  margin-left: 5px;
+  margin-right: 20px;
 }
