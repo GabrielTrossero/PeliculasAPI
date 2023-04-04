@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HostListener } from '@angular/core';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,10 @@ import { HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  searchElement: boolean;
+  faMagnifyingGlass = faMagnifyingGlass;
+  searchText: string;
+
   //Función que captura el scrolling
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
@@ -22,10 +27,23 @@ export class NavbarComponent {
     }
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.searchElement = false;
+    this.searchText = '';
+  }
 
-  buscarPelicula(texto: string) {
-    var texto = texto.trim(); //elimina los espacios en blanco de ambos lados de un string
-    this.router.navigate(['/buscar', texto]);
+  buscarPelicula() {
+    //console.log(texto);
+    console.log(this.searchText);
+    this.searchText = this.searchText.trim(); //elimina los espacios en blanco de ambos lados de un string
+    this.router.navigate(['/buscar', this.searchText]);
+  }
+
+  //función para desplegar/ocultar el buscador
+  activarSearch() {
+    //si está activo, lo desactivo
+    if (this.searchElement) {
+      return (this.searchElement = false);
+    } else return (this.searchElement = true);
   }
 }

@@ -8,6 +8,8 @@ import { CastComponent } from './cast/cast.component';
 import { TrendingComponent } from './trending/trending.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RatingModule } from 'ng-starrating';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms'; //libería para ngModel
 
 @NgModule({
   declarations: [
@@ -16,7 +18,14 @@ import { RatingModule } from 'ng-starrating';
     TrendingComponent,
     NavbarComponent,
   ],
-  imports: [CommonModule, ComponentsRoutingModule, PipesModule, RatingModule],
+  imports: [
+    CommonModule,
+    ComponentsRoutingModule,
+    PipesModule,
+    RatingModule,
+    FontAwesomeModule,
+    FormsModule,
+  ],
   exports: [
     PeliculasPosterComponent,
     CastComponent,

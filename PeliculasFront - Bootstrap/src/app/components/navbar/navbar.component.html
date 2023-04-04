@@ -10,8 +10,10 @@
         height="35"
       />
     </a>
+    <!--
     <div class="d-flex">
       <input
+        *ngIf="element == true"
         #txtBuscar
         (keyup.enter)="buscarPelicula(txtBuscar.value)"
         class="form-control me-2"
@@ -24,6 +26,25 @@
       >
         Buscar
       </button>
+    </div>
+    -->
+
+    <div
+      class="d-flex"
+      [ngClass]="{
+        ocultar: searchElement == false,
+        mostrar: searchElement == true
+      }"
+    >
+      <button (click)="activarSearch()" class="boton" type="submit">
+        <fa-icon [icon]="faMagnifyingGlass" class="fa-xl"></fa-icon>
+      </button>
+
+      <input
+        placeholder="Buscar Pelicula"
+        [(ngModel)]="searchText"
+        (keyup.enter)="buscarPelicula()"
+      />
     </div>
   </div>
 </nav>
