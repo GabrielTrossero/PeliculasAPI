@@ -20,12 +20,22 @@ export class BuscarComponent {
   }
 
   ngOnInit() {
+    /* //DE ESTA FORMA HACE UNA SOLA SOLICITUD, Y SI LA URL CAMBIA, NO SE ACTUALIZA
     const consultaSearch = this.activatedRoute.snapshot.params;
     this.peliculasService.searchMovie(consultaSearch['texto']).subscribe({
       next: (data) => {
         this.moviesSearch = data;
       },
       error: (error) => console.log(error),
+    });*/
+
+    this.activatedRoute.params.subscribe((routeParams) => {
+      this.peliculasService.searchMovie(routeParams['texto']).subscribe({
+        next: (data) => {
+          this.moviesSearch = data;
+        },
+        error: (error) => console.log(error),
+      });
     });
   }
 

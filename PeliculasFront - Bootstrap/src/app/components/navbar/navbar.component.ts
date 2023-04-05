@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HostListener } from '@angular/core';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +10,9 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent {
   searchElement: boolean;
-  faMagnifyingGlass = faMagnifyingGlass;
   searchText: string;
+  faMagnifyingGlass = faMagnifyingGlass;
+  faXmark = faXmark;
 
   //Función que captura el scrolling
   @HostListener('window:scroll', ['$event'])
@@ -33,17 +34,29 @@ export class NavbarComponent {
   }
 
   buscarPelicula() {
-    //console.log(texto);
-    console.log(this.searchText);
-    this.searchText = this.searchText.trim(); //elimina los espacios en blanco de ambos lados de un string
-    this.router.navigate(['/buscar', this.searchText]);
+    if (this.searchText.length === 0) {
+      this.router.navigate(['/home']);
+    } else {
+      this.searchText = this.searchText.trim(); //elimina los espacios en blanco de ambos lados de un string
+      this.router.navigate(['/buscar', this.searchText]);
+    }
   }
 
-  //función para desplegar/ocultar el buscador
+  //función para desplegar el buscador
   activarSearch() {
     //si está activo, lo desactivo
+    if (!this.searchElement) {
+      return (this.searchElement = true);
+    } else return;
+  }
+
+  //función para ocultar el buscador
+  desactivarSearch() {
+    //si está inactivo, lo activo
     if (this.searchElement) {
+      this.searchText = '';
+      this.router.navigate(['/home']);
       return (this.searchElement = false);
-    } else return (this.searchElement = true);
+    } else return;
   }
 }
