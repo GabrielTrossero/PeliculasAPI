@@ -1,11 +1,4 @@
-<div *ngFor="let movie of moviesSearch">
-  <h3>{{ movie.title }}</h3>
-  <p>{{ movie.overview }}</p>
-  <!--poster es un pipe que nos setea correctamente la ruta de la img-->
-  <img
-    [src]="movie.poster_path | poster"
-    class="img"
-    alt=""
-    (click)="onMovieClick(movie)"
-  />
+<div class="container-fluid title">
+  <h2>Resultados</h2>
+  <app-peliculas-poster [movies]="moviesSearch"></app-peliculas-poster>
 </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, take } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { tap, map, filter } from 'rxjs/operators';
 import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 import { MovieResponse } from '../interfaces/movie-response';
 import { Cast, CreditsResponse } from '../interfaces/credits-response';
@@ -58,6 +58,7 @@ export class PeliculasService {
       })
       .pipe(
         map((data) => data.results), //map filtra para usar una parte de la informacion (results contiene la info de las peliculas)
+        map((data) => data.filter((movie) => movie.poster_path !== null)), //filtro las pelis que no tengan imagen
         tap(() => {
           this.carteleraPage += 1;
           this.cargando = false;
@@ -98,6 +99,9 @@ export class PeliculasService {
       .get<CarteleraResponse>(this.baseURL + urlSecon, {
         params: params,
       })
-      .pipe(map((data) => data.results));
+      .pipe(
+        map((data) => data.results),
+        map((data) => data.filter((movie) => movie.poster_path !== null)) //filtro las pelis que no tengan imagen
+      );
   }
 }

@@ -12,3 +12,15 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.titleBase {
+  color: rgb(184, 184, 184);
+  font: small-caps 100%/200% serif;
+}
+
+.title {
+  @extend .titleBase;
+  position: absolute;
+  padding-top: 60px;
+  z-index: 10;
+}

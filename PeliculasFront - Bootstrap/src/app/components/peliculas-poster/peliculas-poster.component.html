@@ -19,7 +19,8 @@
         ></star-rating>
       </div>
       <div class="col-1">
-        <b>{{ movie.vote_average }}</b>
+        <!--Pipe para mostar un solo decimal-->
+        <b>{{ movie.vote_average | number : "1.1-1" }}</b>
       </div>
     </div>
   </div>
