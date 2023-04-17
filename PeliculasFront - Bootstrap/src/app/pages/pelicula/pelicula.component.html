@@ -1,5 +1,37 @@
-<h3>{{ movie.title }}</h3>
-<p>{{ movie.overview }}</p>
-<img [src]="movie.poster_path | poster" class="img" alt="" />
+<div class="container-fluid title">
+  <div class="row">
+    <div class="col-xl-4 col-sm-5 element">
+      <img [src]="movie.poster_path | poster" class="img-fluid" alt="" />
+    </div>
+    <div class="col-xl-8 col-sm-7 element">
+      <h2>{{ movie.title }}</h2>
 
-<app-cast [cast]="arrayCast" class="actores"></app-cast>
+      <div class="puntuacion">
+        <star-rating
+          [value]="movie.vote_average"
+          [totalstars]="10"
+          checkedcolor="yellow"
+          uncheckedcolor="grey"
+          size="18px"
+          [readonly]="false"
+        ></star-rating>
+
+        <!--Pipe para mostar un solo decimal-->
+        <b>{{ movie.vote_average | number : "1.1-1" }}</b>
+      </div>
+
+      <div class="genres">
+        <span *ngFor="let genre of movie.genres">{{ genre.name }}</span>
+      </div>
+
+      <p class="tagline">{{ movie.tagline }}</p>
+
+      <h5>Resumen</h5>
+      <p>{{ movie.overview }}</p>
+    </div>
+  </div>
+
+  <br /><br /><br />
+
+  <app-cast [cast]="arrayCast" class="actores"></app-cast>
+</div>

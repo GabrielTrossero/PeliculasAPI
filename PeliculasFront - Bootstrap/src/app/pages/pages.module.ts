@@ -7,9 +7,16 @@ import { PeliculaComponent } from './pelicula/pelicula.component';
 import { ComponentsModule } from '../components/components.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { BuscarComponent } from './buscar/buscar.component';
+import { RatingModule } from 'ng-starrating';
 
 @NgModule({
   declarations: [HomeComponent, PeliculaComponent, BuscarComponent],
-  imports: [CommonModule, PagesRoutingModule, ComponentsModule, PipesModule],
+  imports: [
+    CommonModule,
+    PagesRoutingModule,
+    ComponentsModule,
+    PipesModule,
+    RatingModule,
+  ],
 })
 export class PagesModule {}

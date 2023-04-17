@@ -1,8 +1,27 @@
-.img {
-  width: 400px;
-  padding-bottom: 40px;
+$padding-top: 15px;
+
+.element {
+  padding-top: $padding-top;
+
+  img {
+    border-radius: 5%;
+    aspect-ratio: 3/4; //solución a problema de tamaño diferente en imagenes
+  }
+
+  .genres {
+    padding-top: $padding-top;
+  }
+
+  .tagline {
+    padding-top: $padding-top;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.7;
+  }
 }
 
-.actores {
-  display: flex;
+span + span:before {
+  color: #8d8d8d;
+  content: "\2022";
+  padding: 5px;
 }

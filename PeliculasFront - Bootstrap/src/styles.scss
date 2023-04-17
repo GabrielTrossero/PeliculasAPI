@@ -8,14 +8,14 @@ body {
   color: rgba(255, 255, 255, 0.897);
 }
 
-//ocultar los scrolls
-::-webkit-scrollbar {
+//ocultar los scrolls del body
+body::-webkit-scrollbar {
   display: none;
 }
 
-.titleBase {
+.titleBase h2 {
   color: rgb(184, 184, 184);
-  font: small-caps 100%/200% serif;
+  font: small-caps 180%/200% serif;
 }
 
 .title {

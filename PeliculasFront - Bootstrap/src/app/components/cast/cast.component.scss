@@ -1,4 +1,61 @@
-.img {
-  width: 200px;
-  padding-bottom: 40px;
+h2 {
+  margin-left: 12px;
 }
+
+.card-group {
+  display: -webkit-box;
+
+  .card {
+    background-color: transparent;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 5%;
+
+    img {
+      border-top-right-radius: 5%;
+      border-top-left-radius: 5%;
+    }
+  }
+}
+
+/*START CARDS RESPONSIVES*/
+@media only screen and (max-width: 600px) {
+  .card-group > .card {
+    flex-basis: 50%; //cantidad de cards en pantalla
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .card-group > .card {
+    flex-basis: 35%; //cantidad de cards en pantalla
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1000px) {
+  .card-group > .card {
+    flex-basis: 23%; //cantidad de cards en pantalla
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .card-group > .card {
+    flex-basis: 12%; //cantidad de cards en pantalla
+  }
+}
+/*FINISH CARDS RESPONSIVES*/
+
+/*START SCROLL*/
+.card-group {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.card-group::-webkit-scrollbar {
+  height: 9px;
+}
+
+.card-group::-webkit-scrollbar-thumb {
+  background: #cfcfcf;
+  border-radius: 5px;
+}
+/*FINISH SCROLL*/

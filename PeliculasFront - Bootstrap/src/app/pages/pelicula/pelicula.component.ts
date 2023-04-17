@@ -4,6 +4,7 @@ import { Cast } from 'src/app/interfaces/credits-response';
 import { MovieResponse } from 'src/app/interfaces/movie-response';
 import { PeliculasService } from 'src/app/services/peliculas.service';
 import { combineLatest } from 'rxjs';
+import { StarRatingComponent } from 'ng-starrating';
 
 @Component({
   selector: 'app-pelicula',
@@ -63,5 +64,16 @@ export class PeliculaComponent {
         console.log(error);
       }
     );*/
+  }
+
+  onRate($event: {
+    oldValue: number;
+    newValue: number;
+    starRating: StarRatingComponent;
+  }) {
+    alert(`Old Value:${$event.oldValue}, 
+      New Value: ${$event.newValue}, 
+      Checked Color: ${$event.starRating.checkedcolor}, 
+      Unchecked Color: ${$event.starRating.uncheckedcolor}`);
   }
 }
