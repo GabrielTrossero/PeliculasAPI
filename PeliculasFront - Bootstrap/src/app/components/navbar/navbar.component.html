@@ -11,30 +11,6 @@
       />
     </a>
 
-    <div
-      class="d-flex"
-      [ngClass]="{
-        ocultar: searchElement == false,
-        mostrar: searchElement == true
-      }"
-    >
-      <button (click)="activarSearch()" class="boton" type="submit">
-        <fa-icon [icon]="faMagnifyingGlass" class="fa-xl"></fa-icon>
-      </button>
-
-      <input
-        placeholder="Buscar Pelicula"
-        [(ngModel)]="searchText"
-        (keyup)="buscarPelicula()"
-      />
-
-      <button
-        (click)="desactivarSearch()"
-        class="boton botonCancel"
-        type="button"
-      >
-        <fa-icon [icon]="faXmark" class="fa-xl"></fa-icon>
-      </button>
-    </div>
+    <app-search></app-search>
   </div>
 </nav>

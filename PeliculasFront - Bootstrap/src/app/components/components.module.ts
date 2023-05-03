@@ -7,6 +7,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { CastComponent } from './cast/cast.component';
 import { TrendingComponent } from './trending/trending.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SearchComponent } from './search/search.component';
 import { RatingModule } from 'ng-starrating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms'; //libería para ngModel
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms'; //libería para ngModel
     CastComponent,
     TrendingComponent,
     NavbarComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,

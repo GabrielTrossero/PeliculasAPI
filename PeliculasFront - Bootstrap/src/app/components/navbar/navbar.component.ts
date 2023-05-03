@@ -9,11 +9,6 @@ import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  searchElement: boolean;
-  searchText: string;
-  faMagnifyingGlass = faMagnifyingGlass;
-  faXmark = faXmark;
-
   //Función que captura el scrolling
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
@@ -28,35 +23,5 @@ export class NavbarComponent {
     }
   }
 
-  constructor(private router: Router) {
-    this.searchElement = false;
-    this.searchText = '';
-  }
-
-  buscarPelicula() {
-    if (this.searchText.length === 0) {
-      this.router.navigate(['/home']);
-    } else {
-      this.searchText = this.searchText.trim(); //elimina los espacios en blanco de ambos lados de un string
-      this.router.navigate(['/buscar', this.searchText]);
-    }
-  }
-
-  //función para desplegar el buscador
-  activarSearch() {
-    //si está activo, lo desactivo
-    if (!this.searchElement) {
-      return (this.searchElement = true);
-    } else return;
-  }
-
-  //función para ocultar el buscador
-  desactivarSearch() {
-    //si está inactivo, lo activo
-    if (this.searchElement) {
-      this.searchText = '';
-      this.router.navigate(['/home']);
-      return (this.searchElement = false);
-    } else return;
-  }
+  constructor() {}
 }
