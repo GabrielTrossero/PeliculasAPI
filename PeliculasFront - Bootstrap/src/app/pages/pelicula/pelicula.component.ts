@@ -5,6 +5,7 @@ import { MovieResponse } from 'src/app/interfaces/movie-response';
 import { PeliculasService } from 'src/app/services/peliculas.service';
 import { combineLatest } from 'rxjs';
 import { StarRatingComponent } from 'ng-starrating';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-pelicula',
@@ -18,10 +19,12 @@ export class PeliculaComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private peliculasService: PeliculasService,
-    private router: Router
+    private router: Router,
+    private searchService: SearchService
   ) {
     this.movie = {} as MovieResponse; //forma de inicializar interfaz
     this.arrayCast = [];
+    this.searchService.setTextSearch(''); //seteo a vacío el buscador
   }
 
   ngOnInit() {

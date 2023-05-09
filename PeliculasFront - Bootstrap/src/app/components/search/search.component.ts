@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, UrlSegment } from '@angular/router';
 import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -10,12 +12,21 @@ import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 export class SearchComponent {
   searchElement: boolean;
   searchText: string;
+  searchTextSubject: Observable<string>;
   faMagnifyingGlass = faMagnifyingGlass;
   faXmark = faXmark;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private searchService: SearchService) {
     this.searchElement = false;
     this.searchText = '';
+    this.searchTextSubject = this.searchService.getTextSearch();
+  }
+
+  ngOnInit() {
+    //asigno la subscripción a la variable que utilizo en este componente
+    this.searchTextSubject.subscribe((value) => {
+      this.searchText = value;
+    });
   }
 
   buscarPelicula() {
@@ -39,7 +50,14 @@ export class SearchComponent {
     //si está inactivo, lo activo
     if (this.searchElement) {
       this.searchText = '';
-      this.router.navigate(['/home']);
+
+      //en caso de que cierren desde la ruta buscar, vuelvo hacia el home
+      const url: UrlSegment[] = this.router.parseUrl(this.router.url).root
+        .children['primary'].segments;
+      if (url[0].path === 'buscar') {
+        this.router.navigate(['/home']);
+      }
+
       return (this.searchElement = false);
     } else return;
   }

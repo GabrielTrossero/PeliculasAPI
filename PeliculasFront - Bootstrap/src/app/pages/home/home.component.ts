@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Movie } from 'src/app/interfaces/cartelera-response';
 import { PeliculasService } from 'src/app/services/peliculas.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-home',
@@ -35,9 +36,13 @@ export class HomeComponent {
     }
   }
 
-  constructor(private peliculasService: PeliculasService) {
+  constructor(
+    private peliculasService: PeliculasService,
+    private searchService: SearchService
+  ) {
     this.arrayMovies = [];
     this.arrayTrending = [];
+    this.searchService.setTextSearch(''); //seteo a vacío el buscador
   }
 
   ngOnInit() {
